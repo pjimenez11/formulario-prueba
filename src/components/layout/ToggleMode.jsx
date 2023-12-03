@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
+import { IoSunny } from "react-icons/io5";
+
 
 const storedTheme = localStorage.theme;
 const initialDarkToggle =
@@ -21,9 +23,9 @@ export default function ToggleMode() {
   }, [darkToggle]);
 
   return (
-    <div className="fixed right-3 bottom-3 z-50">
+    <div className="fixed flex p-1 rounded-md right-3 bottom-3 z-50 ">
       <button onClick={() => setDarkToggle((prev) => !prev)}>
-        {darkToggle ? <FaSun className="w-6 h-6 text-yellow-300"/> : <FaMoon className="w-6 h-6 text-gray-800"/>}
+        {darkToggle ? <IoSunny className="w-6 h-6 text-yellow-300"/> : <FaMoon className="w-6 h-6 text-gray-800"/>}
       </button>
     </div>
   );
