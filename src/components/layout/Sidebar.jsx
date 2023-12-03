@@ -1,21 +1,66 @@
 import { HiMiniXMark } from "react-icons/hi2";
 import { AiOutlineDashboard } from "react-icons/ai";
+import { RiListCheck3 } from "react-icons/ri";
+import { LuClipboardList } from "react-icons/lu";
+import { RiUser3Line } from "react-icons/ri";
+import { RiSettings3Line } from "react-icons/ri";
+import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const initialNavigation = [
   {
-    name: "Dashboard",
-    href: "#",
+    name: "Panel",
+    href: "/formu/panel",
     icon: <AiOutlineDashboard className="w-6 h-6" />,
     current: false,
   },
   {
-    name: "Accounts",
-    href: "#",
-    icon: "",
+    name: "Formularios",
+    href: "/formu/formularios",
+    icon: <LuClipboardList className="w-6 h-6" />,
+    current: false,
+  },
+  {
+    name: "Asignaciones",
+    href: "/formu/asignaciones",
+    icon: <RiListCheck3 className="w-6 h-6" />,
+    current: false,
+  },
+  {
+    name: "Usuarios",
+    href: "/formu/usuarios",
+    icon: <RiUser3Line className="w-6 h-6" />,
+    current: false,
+  },
+  {
+    name: "Configuración",
+    href: "/formu/configuracion",
+    icon: <RiSettings3Line className="w-6 h-6" />,
     current: false,
   },
 ];
 export default function Sidebar({ toggleSidebarVisibility, toggleSidebar }) {
+  const [navigation, setNavigation] = useState(initialNavigation);
+
+  const path = window.location.pathname;
+
+  const onCurrent = (href) => {
+    setNavigation((prev) =>
+      prev.map((item) => {
+        if (item.href === href) {
+          item.current = true;
+        } else {
+          item.current = false;
+        }
+        return item;
+      })
+    );
+  };
+
+  useEffect(() => {
+    onCurrent(path);
+  }, [path]);
+
   return (
     <aside
       className={`fixed md:flex flex-col w-64 h-screen ${
@@ -37,15 +82,19 @@ export default function Sidebar({ toggleSidebarVisibility, toggleSidebar }) {
       </div>
       <div className="flex flex-col justify-between flex-1 mt-6">
         <nav>
-          {initialNavigation.map((item) => (
-            <a
+          {navigation.map((item) => (
+            <NavLink
               key={item.name}
-              href={item.href}
-              className="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+              to={item.href}
+              className={`flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700 ${
+                item.current &&
+                "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+              }`}
+              onClick={() => onCurrent(item.href)}
             >
               {item.icon}
               <span className="mx-4 font-medium">{item.name}</span>
-            </a>
+            </NavLink>
           ))}
           <hr className="my-6 border-gray-200 dark:border-gray-600" />
         </nav>
