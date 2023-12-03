@@ -117,7 +117,7 @@ export default function TableForms() {
                   Arthur Melo
                 </h2>
                 <p class="text-xs font-normal text-gray-600 dark:text-gray-400">
-                  authurmelo@example.com
+                  Developer
                 </p>
               </div>
             </div>
@@ -134,7 +134,7 @@ export default function TableForms() {
                   Orlando Diggs
                 </h2>
                 <p class="text-xs font-normal text-gray-600 dark:text-gray-400">
-                  orlando@example.com
+                  Developer
                 </p>
               </div>
             </div>
@@ -192,7 +192,7 @@ export default function TableForms() {
                   Andi Lane
                 </h2>
                 <p class="text-xs font-normal text-gray-600 dark:text-gray-400">
-                  andi@example.com
+                  Developer
                 </p>
               </div>
             </div>
@@ -201,15 +201,15 @@ export default function TableForms() {
             <div class="flex items-center gap-x-2">
               <img
                 class="object-cover w-8 h-8 rounded-full"
-                src="https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=644&q=80"
+                src="https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
                 alt=""
               />
               <div>
                 <h2 class="text-sm font-medium text-gray-800 dark:text-white ">
-                  Orlando Diggs
+                  Andi Lane
                 </h2>
                 <p class="text-xs font-normal text-gray-600 dark:text-gray-400">
-                  orlando@example.com
+                  Developer
                 </p>
               </div>
             </div>
@@ -267,7 +267,7 @@ export default function TableForms() {
                   Orlando Diggs
                 </h2>
                 <p class="text-xs font-normal text-gray-600 dark:text-gray-400">
-                  orlando@example.com
+                  Developer
                 </p>
               </div>
             </div>
@@ -284,7 +284,7 @@ export default function TableForms() {
                   Orlando Diggs
                 </h2>
                 <p class="text-xs font-normal text-gray-600 dark:text-gray-400">
-                  orlando@example.com
+                  Developer
                 </p>
               </div>
             </div>
