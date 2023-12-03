@@ -21,11 +21,11 @@ export default function RegisterPage() {
         </div>
         <form>
           <p className="mb-4">Por favor, Registrese</p>
-          <div class="relative flex flex-wrap gap-3">
-            <div class="flex-1">
+          <div className="relative flex flex-wrap gap-3">
+            <div className="flex-1">
               <TEInput type="text" label="Nombre" className="mb-4"></TEInput>
             </div>
-            <div class="flex-1">
+            <div className="flex-1">
               <TEInput type="text" label="Apellido" className="mb-4"></TEInput>
             </div>
           </div>
