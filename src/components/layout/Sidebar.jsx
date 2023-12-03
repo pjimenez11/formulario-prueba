@@ -90,7 +90,7 @@ export default function Sidebar({ toggleSidebarVisibility, toggleSidebar }) {
                 item.current &&
                 "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
               }`}
-              onClick={() => onCurrent(item.href)}
+              onClick={() => {onCurrent(item.href), toggleSidebarVisibility()}}
             >
               {item.icon}
               <span className="mx-4 font-medium">{item.name}</span>
