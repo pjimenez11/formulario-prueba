@@ -14,7 +14,7 @@ export default function RegisterPage() {
     <section className="min-h-screen w-full flex justify-center items-center p-4">
       <div className="rounded-lg bg-neutral-100 shadow-lg dark:bg-neutral-900 sm:w-8/12 lg:w-5/12 w-full h-min px-4 text-neutral-800 dark:text-neutral-200">
         <div className="text-center">
-          <img className="mx-auto w-48" src="/Icons/logo.png" alt="logo" />
+          <img className="mx-auto w-48" src="logo.png" alt="logo" />
           <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
             Nosotros somos FormuGenius
           </h4>
