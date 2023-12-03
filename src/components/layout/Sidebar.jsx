@@ -63,13 +63,13 @@ export default function Sidebar({ toggleSidebarVisibility, toggleSidebar }) {
 
   return (
     <aside
-      className={`fixed md:flex flex-col w-64 h-screen ${
+      className={`fixed md:flex md:flex-1 flex-col w-64 h-screen ${
         toggleSidebar || "hidden"
       } z-50 px-4 py-8 overflow-y-auto bg-white border-r dark:bg-gray-900 dark:border-gray-700 transition-all`}
     >
       <div className="flex items-center justify-between">
         <a href="#" className="flex items-center">
-          <img className="w-auto h-14 sm:h-16" src="logo.png" alt="" />
+          <img className="w-auto h-14 sm:h-16" src="/logo.png" alt="logo" />
           <h1 className="font-semibold">FormuGenius</h1>
         </a>
         <button
