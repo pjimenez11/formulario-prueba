@@ -123,12 +123,26 @@ export default function TableForms() {
             </div>
           </td>
           <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-            Monthly subscription
+            <div class="flex items-center gap-x-2">
+              <img
+                class="object-cover w-8 h-8 rounded-full"
+                src="https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=644&q=80"
+                alt=""
+              />
+              <div>
+                <h2 class="text-sm font-medium text-gray-800 dark:text-white ">
+                  Orlando Diggs
+                </h2>
+                <p class="text-xs font-normal text-gray-600 dark:text-gray-400">
+                  orlando@example.com
+                </p>
+              </div>
+            </div>
           </td>
           <td class="px-4 py-4 text-sm whitespace-nowrap">
             <div class="flex items-center gap-x-6">
               <button class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
-                Archive
+                Editar
               </button>
 
               <button class="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
@@ -184,12 +198,26 @@ export default function TableForms() {
             </div>
           </td>
           <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-            Monthly subscription
+            <div class="flex items-center gap-x-2">
+              <img
+                class="object-cover w-8 h-8 rounded-full"
+                src="https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=644&q=80"
+                alt=""
+              />
+              <div>
+                <h2 class="text-sm font-medium text-gray-800 dark:text-white ">
+                  Orlando Diggs
+                </h2>
+                <p class="text-xs font-normal text-gray-600 dark:text-gray-400">
+                  orlando@example.com
+                </p>
+              </div>
+            </div>
           </td>
           <td class="px-4 py-4 text-sm whitespace-nowrap">
             <div class="flex items-center gap-x-6">
               <button class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
-                Archive
+                Editar
               </button>
 
               <button class="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
@@ -245,12 +273,26 @@ export default function TableForms() {
             </div>
           </td>
           <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-            Monthly subscription
+            <div class="flex items-center gap-x-2">
+              <img
+                class="object-cover w-8 h-8 rounded-full"
+                src="https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=644&q=80"
+                alt=""
+              />
+              <div>
+                <h2 class="text-sm font-medium text-gray-800 dark:text-white ">
+                  Orlando Diggs
+                </h2>
+                <p class="text-xs font-normal text-gray-600 dark:text-gray-400">
+                  orlando@example.com
+                </p>
+              </div>
+            </div>
           </td>
           <td class="px-4 py-4 text-sm whitespace-nowrap">
             <div class="flex items-center gap-x-6">
               <button class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
-                Archive
+                Editar
               </button>
 
               <button class="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
