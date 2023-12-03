@@ -65,7 +65,7 @@ export default function Sidebar({ toggleSidebarVisibility, toggleSidebar }) {
     <aside
       className={`fixed md:flex md:flex-1 flex-col w-64 h-screen ${
         toggleSidebar || "hidden"
-      } z-50 px-4 py-8 overflow-y-auto bg-white border-r dark:bg-gray-900 dark:border-gray-700 transition-all`}
+      } z-50 px-4 py-8 overflow-y-auto bg-slate-50 border-r dark:bg-gray-900 dark:border-gray-700 transition-all`}
     >
       <div className="flex items-center justify-between">
         <a href="#" className="flex items-center">
