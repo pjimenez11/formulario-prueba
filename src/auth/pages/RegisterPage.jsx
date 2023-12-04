@@ -41,7 +41,7 @@ export default function RegisterPage() {
             Nosotros somos FormuGenius
           </h4>
         </div>
-        <form>
+        <form onSubmit={onRegister}>
           <p className="mb-4">Por favor, Registrese</p>
           <div className="relative flex flex-wrap gap-3">
             <div className="flex-1">
@@ -56,10 +56,12 @@ export default function RegisterPage() {
                     user: { ...userRegister.user, first_name: e.target.value },
                   })
                 }
+                required
               ></TEInput>
             </div>
             <div className="flex-1">
               <TEInput
+              required
                 type="text"
                 label="Apellido"
                 className="mb-4"
@@ -74,6 +76,7 @@ export default function RegisterPage() {
             </div>
           </div>
           <TEInput
+            required
             type="text"
             label="Empresa"
             className="mb-4"
@@ -90,7 +93,8 @@ export default function RegisterPage() {
             }
           ></TEInput>
           <TEInput
-            type="text"
+            required
+            type="email"
             label="Email"
             className="mb-4"
             onChange={(e) => {
@@ -98,10 +102,10 @@ export default function RegisterPage() {
                 ...userRegister,
                 user: { ...userRegister.user, email: e.target.value },
               });
-              console.log(userRegister);
             }}
           ></TEInput>
           <TEInput
+          required
             type={showPassword ? "text" : "password"}
             label="Contraseña"
             className="mb-4"
@@ -118,6 +122,7 @@ export default function RegisterPage() {
               type="checkbox"
               id="showPassword"
               onChange={togglePasswordVisibility}
+              required
             />
             <label
               className="inline-block ml-3 hover:cursor-pointer"
@@ -131,12 +136,11 @@ export default function RegisterPage() {
             <TERipple rippleColor="light" className="w-full">
               <button
                 className=" inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-semibold uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
-                type="button"
+                type="submit"
                 style={{
                   background:
                     "linear-gradient(to right, #246bee, #36add8, #36ddc1, #45b484)",
                 }}
-                onClick={onRegister}
               >
                 Registrarse
               </button>
