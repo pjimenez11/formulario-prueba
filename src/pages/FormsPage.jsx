@@ -3,9 +3,11 @@ import TableForms from "../components/TableForms";
 import { useEffect } from "react";
 import useForms from "../hooks/useForms";
 import formsApi from "../apis/formsApi";
+import useUsers from "../hooks/useUsers";
 
 export default function FormsPage() {
   const { getForms, newForm } = useForms();
+  const { getUsers } = useUsers();
   useEffect(() => {
     getForms();
   }, []);

@@ -79,11 +79,7 @@ export default function RequestData({ form, onInputChange }) {
             aria-describedby="fecha-solicitud"
             disabled
             name="date"
-            value={
-              isCreate === true
-                ? new Date().toISOString().split("T")[0]
-                : form.date
-            }
+            value={form.date}
             onChange={(e) => onInputChange(e)}
           />
         </div>
