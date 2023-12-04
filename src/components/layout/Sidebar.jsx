@@ -6,6 +6,7 @@ import { RiUser3Line } from "react-icons/ri";
 import { RiSettings3Line } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
+import useAuth from "../../auth/hooks/useAuth";
 
 const initialNavigation = [
   {
@@ -31,6 +32,8 @@ export default function Sidebar({ toggleSidebarVisibility, toggleSidebar }) {
   const [navigation, setNavigation] = useState(initialNavigation);
 
   const path = window.location.pathname;
+
+  const { login } = useAuth();
 
   const onCurrent = (href) => {
     setNavigation((prev) =>
@@ -77,7 +80,7 @@ export default function Sidebar({ toggleSidebarVisibility, toggleSidebar }) {
               className={`flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700 ${
                 item.current &&
                 "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-              }`}
+              } ${login.user.role == "tester" && item.name == "Usuarios" ? "hidden" : "flex"}` }
               onClick={() => {
                 onCurrent(item.href), toggleSidebarVisibility();
               }}

@@ -7,12 +7,14 @@ import Form from "../components/Form";
 import AssignmentsPage from "../pages/AssignmentsPage";
 import UsersPage from "../pages/UsersPages";
 import FormUser from "../components/FormUser";
+import useAuth from "../auth/hooks/useAuth";
 
 export default function PageRoutes() {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const toggleSidebarVisibility = () => {
     setToggleSidebar((prev) => !prev);
   };
+  const { login } = useAuth();
   return (
     <>
       <Header toggleSidebarVisibility={toggleSidebarVisibility} />
@@ -21,18 +23,18 @@ export default function PageRoutes() {
         toggleSidebar={toggleSidebar}
       />
       <main className="md:pl-72 w-full min-h-[calc(100vh-64px)] mt-16  dark:bg-gray-800 transition-all p-8">
-      <Routes>
-        <Route path="/formularios" element={<FormsPage />} />
-        <Route path="formularios/nuevo-formulario" element={<Form />} />
-        <Route path="/asignaciones" element={<AssignmentsPage />} />
-        <Route path="/asignaciones/edit/:id" element={<Form />} />
-        <Route path="/usuarios" element={<UsersPage />} />
-        <Route path="/usuarios/nuevo-usuario" element={<FormUser />} />
+        <Routes>
+          <Route path="/formularios" element={<FormsPage />} />
+          <Route path="formularios/nuevo-formulario" element={<Form />} />
 
-        <Route path="/configuracion" element={<h1>Configuración</h1>} />
-        
-        <Route path="/*" element={<Navigate to="/formu/formularios" />} />        
-      </Routes>
+          <Route path="/asignaciones" element={<AssignmentsPage />} />
+          <Route path="/asignaciones/edit/:id" element={<Form />} />
+          <Route path="/usuarios" element={<UsersPage />} />
+          <Route path="/usuarios/nuevo-usuario" element={<FormUser />} />
+          <Route path="/usuarios" element={<UsersPage />} />
+          <Route path="/usuarios/nuevo-usuario" element={<FormUser />} />
+          <Route path="/*" element={<Navigate to="/formu/formularios" />} />
+        </Routes>
       </main>
     </>
   );

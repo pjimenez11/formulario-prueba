@@ -18,14 +18,7 @@ const useForms = () => {
             if (response.status === 200) {
                 const { data } = response;
                 dispach(loadForms(data.forms.map(formString => JSON.parse(formString))));
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Usuario no autorizado!',
-                });
-                handlerLogout();
-            }
+            } 
         } catch (error) {
             console.log(error);
         }
@@ -49,7 +42,6 @@ const useForms = () => {
     const update = async (form) => {
         try {
             const response = await updateForm(form, form.id);
-            console.log(response);
             if (response.status === 200) {
                 Swal.fire({
                     icon: 'success',
@@ -57,13 +49,7 @@ const useForms = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Error al actualizar el formulario!',
-                });
-            }
+            } 
         } catch (error) {
             console.log(error);
         }
@@ -76,6 +62,7 @@ const useForms = () => {
     const addForm = async (form, user_id) => {
         try {
             const response = await createForm(form);
+            console.log(response);
             if (response.status === 201) {
                 const { data } = response;
                 const id = JSON.parse(data.form).id;
@@ -87,13 +74,7 @@ const useForms = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Error al crear el formulario!',
-                    });
-                }
+                } 
 
             }
         } catch (error) {

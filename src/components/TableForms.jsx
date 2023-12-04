@@ -46,12 +46,7 @@ export default function TableForms() {
           >
             Revisor
           </th>
-          <th
-            scope="col"
-            className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-          >
-            Acciones
-          </th>
+          
         </tr>
       </thead>
       <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">

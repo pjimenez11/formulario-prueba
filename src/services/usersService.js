@@ -19,7 +19,7 @@ export const findUserById = async (id) => {
 
 export const createUser = async (user) => {
     try {
-        return await formsApi.post(BASE_URL, user);
+        return await formsApi.post(BASE_URL, {user});
     } catch (error) {
         return error
     }

@@ -27,9 +27,10 @@ export default function Approval({ form, onInputChange, userAsign, setUserAsign 
             value={userAsign}
             onChange={(e) => setUserAsign(e.target.value)}
           >
+            <option value="">Seleccionar...</option>
             {users.map((user) => (
               <Fragment key={user.id}>
-                {user.role === "admin" ? (
+                {user.role === "tester" ? (
                   <option value={user.id}>
                     {user.first_name} {user.last_name}
                   </option>
