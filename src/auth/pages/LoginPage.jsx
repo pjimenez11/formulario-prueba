@@ -18,18 +18,18 @@ export default function LoginPage() {
 
   return (
     <section className="min-h-screen w-full flex justify-center items-center p-4">
-      <div className="rounded-lg bg-white shadow-lg dark:bg-neutral-800 sm:w-8/12 lg:w-5/12 w-full h-min px-4 text-neutral-800 dark:text-neutral-200">
+      <div className="rounded-lg bg-white shadow-lg dark:bg-neutral-900 sm:w-8/12 lg:w-5/12 w-full h-min px-4 text-neutral-800 dark:text-neutral-200">
         <div className="text-center">
           <img className="mx-auto w-48" src="logo.png" alt="logo" />
           <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
             Nosotros somos FormuGenius
           </h4>
         </div>
-        <form>
+        <form onSubmit={onSingIn}>
           <p className="mb-4">Por favor, ingrese a su cuenta</p>
           <TEInput
-            type="text"
-            label="Nombre de usuario"
+            type="email"
+            label="Email"
             className="mb-4"
             onChange={(e) => setUser({ ...user, email: e.target.value })}
           ></TEInput>
@@ -58,13 +58,10 @@ export default function LoginPage() {
             <TERipple rippleColor="light" className="w-full">
               <button
                 className=" inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-semibold uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
-                type="button"
+                type="submit"
                 style={{
                   background:
                     "linear-gradient(to right, #246bee, #36add8, #36ddc1, #45b484)",
-                }}
-                onClick={() => {
-                  onSingIn();
                 }}
               >
                 Iniciar
