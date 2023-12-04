@@ -1,6 +1,15 @@
+import { useEffect } from "react";
 import TableAssignments from "../components/TableAssignments";
+import useAssignment from "../hooks/useAssignment";
 
 export default function AssignmentsPage() {
+
+  const { getAssignments } = useAssignment();
+
+  useEffect(() => {
+    getAssignments();
+  }, []);
+
   return (
     <section className="flex flex-col">
       <div className="overflow-x-auto ">

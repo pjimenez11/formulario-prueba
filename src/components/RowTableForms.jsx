@@ -15,7 +15,7 @@ export default function RowTableForms({ form }) {
   return (
     <tr key={form.id}>
       <td className="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
-        #{form.application_number}
+        {form.application_number}
       </td>
       <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
         {form.date}
@@ -42,7 +42,7 @@ export default function RowTableForms({ form }) {
         <div className="flex items-center gap-x-2">
           <img
             className="object-cover w-8 h-8 rounded-full"
-            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+            src="https://cdn.vectorstock.com/i/preview-1x/73/23/developer-icon-defi-related-vector-41827323.jpg"
             alt=""
           />
           <div>
@@ -56,7 +56,7 @@ export default function RowTableForms({ form }) {
         <div className="flex items-center gap-x-2">
           <img
             className="object-cover w-8 h-8 rounded-full"
-            src="https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fH Compare this snippet from src/components/TableForms.jsx: xid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=644&q=80"
+            src="https://cdn-icons-png.flaticon.com/512/219/219969.png"
             alt=""
           />
           <div>
