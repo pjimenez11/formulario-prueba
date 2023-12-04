@@ -9,12 +9,6 @@ import { useEffect, useState } from "react";
 
 const initialNavigation = [
   {
-    name: "Panel",
-    href: "/formu/panel",
-    icon: <AiOutlineDashboard className="w-6 h-6" />,
-    current: false,
-  },
-  {
     name: "Formularios",
     href: "/formu/formularios",
     icon: <LuClipboardList className="w-6 h-6" />,
@@ -30,12 +24,6 @@ const initialNavigation = [
     name: "Usuarios",
     href: "/formu/usuarios",
     icon: <RiUser3Line className="w-6 h-6" />,
-    current: false,
-  },
-  {
-    name: "Configuración",
-    href: "/formu/configuracion",
-    icon: <RiSettings3Line className="w-6 h-6" />,
     current: false,
   },
 ];
@@ -65,7 +53,7 @@ export default function Sidebar({ toggleSidebarVisibility, toggleSidebar }) {
     <aside
       className={`fixed md:flex md:flex-1 flex-col w-64 h-screen ${
         toggleSidebar || "hidden"
-      } z-50 px-4 py-8 overflow-y-auto bg-slate-50 border-r dark:bg-gray-900 dark:border-gray-700 transition-all`}
+      } z-50 px-4 py-8 overflow-y-auto bg-slate-200 border-r border-slate-400 dark:bg-gray-900 dark:border-gray-700 transition-all`}
     >
       <div className="flex items-center justify-between">
         <a href="#" className="flex items-center">
@@ -90,25 +78,15 @@ export default function Sidebar({ toggleSidebarVisibility, toggleSidebar }) {
                 item.current &&
                 "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
               }`}
-              onClick={() => {onCurrent(item.href), toggleSidebarVisibility()}}
+              onClick={() => {
+                onCurrent(item.href), toggleSidebarVisibility();
+              }}
             >
               {item.icon}
               <span className="mx-4 font-medium">{item.name}</span>
             </NavLink>
           ))}
-          <hr className="my-6 border-gray-200 dark:border-gray-600" />
         </nav>
-
-        <a href="#" className="flex items-center px-4 -mx-2">
-          <img
-            className="object-cover mx-2 rounded-full h-9 w-9"
-            src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-            alt="avatar"
-          />
-          <span className="mx-2 font-medium text-gray-800 dark:text-gray-200">
-            John Doe
-          </span>
-        </a>
       </div>
     </aside>
   );

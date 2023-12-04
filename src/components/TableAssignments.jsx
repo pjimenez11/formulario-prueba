@@ -1,9 +1,14 @@
-export default function TableForms() {
+import { useNavigate } from "react-router-dom";
+
+export default function TableAssignments() {
+
+    const navigate = useNavigate();
+
   return (
     <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
       <thead className="bg-gray-50 dark:bg-gray-800">
         <tr>
-        <th
+          <th
             scope="col"
             className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
           >
@@ -29,13 +34,6 @@ export default function TableForms() {
             className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
           >
             Solicitante
-          </th>
-
-          <th
-            scope="col"
-            className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-          >
-            Revisor
           </th>
 
           <th
@@ -92,31 +90,10 @@ export default function TableForms() {
               </div>
             </div>
           </td>
-          <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-            <div className="flex items-center gap-x-2">
-              <img
-                className="object-cover w-8 h-8 rounded-full"
-                src="https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=644&q=80"
-                alt=""
-              />
-              <div>
-                <h2 className="text-sm font-medium text-gray-800 dark:text-white ">
-                  Orlando Diggs
-                </h2>
-                <p className="text-xs font-normal text-gray-600 dark:text-gray-400">
-                  Developer
-                </p>
-              </div>
-            </div>
-          </td>
           <td className="px-4 py-4 text-sm whitespace-nowrap">
             <div className="flex items-center gap-x-6">
-              <button className="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
-                Editar
-              </button>
-
-              <button className="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
-                Descargar
+              <button className="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none" onClick={() => navigate("/formu/asignaciones/edit")}>
+                Visualizar
               </button>
             </div>
           </td>
@@ -167,31 +144,10 @@ export default function TableForms() {
               </div>
             </div>
           </td>
-          <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-            <div className="flex items-center gap-x-2">
-              <img
-                className="object-cover w-8 h-8 rounded-full"
-                src="https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
-                alt=""
-              />
-              <div>
-                <h2 className="text-sm font-medium text-gray-800 dark:text-white ">
-                  Andi Lane
-                </h2>
-                <p className="text-xs font-normal text-gray-600 dark:text-gray-400">
-                  Developer
-                </p>
-              </div>
-            </div>
-          </td>
           <td className="px-4 py-4 text-sm whitespace-nowrap">
             <div className="flex items-center gap-x-6">
-              <button className="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
-                Editar
-              </button>
-
-              <button className="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
-                Descargar
+              <button className="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none" onClick={() => navigate("/formu/asignaciones/edit")}>
+                Visualizar
               </button>
             </div>
           </td>
@@ -242,31 +198,10 @@ export default function TableForms() {
               </div>
             </div>
           </td>
-          <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-            <div className="flex items-center gap-x-2">
-              <img
-                className="object-cover w-8 h-8 rounded-full"
-                src="https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=644&q=80"
-                alt=""
-              />
-              <div>
-                <h2 className="text-sm font-medium text-gray-800 dark:text-white ">
-                  Orlando Diggs
-                </h2>
-                <p className="text-xs font-normal text-gray-600 dark:text-gray-400">
-                  Developer
-                </p>
-              </div>
-            </div>
-          </td>
           <td className="px-4 py-4 text-sm whitespace-nowrap">
             <div className="flex items-center gap-x-6">
-              <button className="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
-                Editar
-              </button>
-
-              <button className="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
-                Descargar
+              <button className="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none" onClick={() => navigate("/formu/asignaciones/edit")}>
+                Visualizar
               </button>
             </div>
           </td>

@@ -4,6 +4,9 @@ import Sidebar from "../components/layout/Sidebar";
 import { Navigate, Route, Routes } from "react-router-dom";
 import FormsPage from "../pages/FormsPage";
 import Form from "../components/Form";
+import AssignmentsPage from "../pages/AssignmentsPage";
+import UsersPage from "../pages/UsersPages";
+import FormUser from "../components/FormUser";
 
 export default function PageRoutes() {
   const [toggleSidebar, setToggleSidebar] = useState(false);
@@ -21,10 +24,14 @@ export default function PageRoutes() {
       <Routes>
         <Route path="/panel" element={<h1>Panel</h1>} />
         <Route path="/formularios" element={<FormsPage />} />
-        <Route path="/asignaciones" element={<h1>Asignaciones</h1>} />
-        <Route path="/usuarios" element={<h1>Usuarios</h1>} />
-        <Route path="/configuracion" element={<h1>Configuración</h1>} />
         <Route path="formularios/nuevo-formulario" element={<Form />} />
+        <Route path="/asignaciones" element={<AssignmentsPage />} />
+        <Route path="/asignaciones/edit" element={<Form />} />
+        <Route path="/usuarios" element={<UsersPage />} />
+        <Route path="/usuarios/nuevo-usuario" element={<FormUser />} />
+
+        <Route path="/configuracion" element={<h1>Configuración</h1>} />
+        
         <Route path="/*" element={<Navigate to="/formu/panel" />} />        
       </Routes>
       </main>
