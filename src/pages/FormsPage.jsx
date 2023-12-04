@@ -1,7 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import TableForms from "../components/TableForms";
+import { useEffect } from "react";
+import useForms from "../hooks/useForms";
+import formsApi from "../apis/formsApi";
 
 export default function FormsPage() {
+
+const { getForms,forms } = useForms();
+  useEffect(() => {
+    getForms();
+  }, []);
 
     const navigate = useNavigate();
   return (

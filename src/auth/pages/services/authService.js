@@ -8,10 +8,11 @@ export const sign_in = async (user) => {
     }
 }
 
-export const register = async (register) => {
+export const register = async (user) => {
     console.log(register)
+
     try {
-        return await axios.post(`${import.meta.env.VITE_API_BASE_URL_USERS}`, { register })
+        return await axios.post(`${import.meta.env.VITE_API_BASE_URL_USERS}`,  user )
     } catch (error) {
         return error
     }

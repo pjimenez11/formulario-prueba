@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TEInput, TERipple } from "tw-elements-react";
-import { register } from "./services/authService";
+import useAuth from "../hooks/useAuth";
 
 const initialuser = {
   user: {
@@ -17,6 +17,9 @@ const initialuser = {
 };
 
 export default function RegisterPage() {
+
+  const { handlerRegister } = useAuth();
+
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const [userRegister, setUserRegister] = useState(initialuser);
@@ -26,15 +29,7 @@ export default function RegisterPage() {
   };
 
   const onRegister = async (e) => {
-    console.log(userRegister);
-    register(userRegister).then((res) => {
-      console.log(res);
-      if (res.status === 200) {
-        navigate("/formu");
-      } else {
-        alert("Error al registrarse");
-      }
-    });
+    handlerRegister(userRegister);
   };
 
   return (
@@ -57,8 +52,8 @@ export default function RegisterPage() {
                 value={userRegister.first_name}
                 onChange={(e) =>
                   setUserRegister({
-                    ...userRegister.user,
-                    user: { first_name: e.target.value },
+                    ...userRegister,
+                    user: { ...userRegister.user, first_name: e.target.value },
                   })
                 }
               ></TEInput>
@@ -71,8 +66,8 @@ export default function RegisterPage() {
                 value={userRegister.last_name}
                 onChange={(e) =>
                   setUserRegister({
-                    ...userRegister.user,
-                    user: { last_name: e.target.value },
+                    ...userRegister,
+                    user: { ...userRegister.user, last_name: e.target.value },
                   })
                 }
               ></TEInput>
@@ -83,21 +78,25 @@ export default function RegisterPage() {
             label="Empresa"
             className="mb-4"
             onChange={(e) =>
-              setUserRegister({
-                ...userRegister.user,
-                user: { company_attributes: { name: e.target.value } },
-              })
+              setUserRegister((prevUser) => ({
+                ...prevUser,
+                user: {
+                  ...prevUser.user,
+                  company_attributes: {
+                    name: e.target.value,
+                  },
+                },
+              }))
             }
           ></TEInput>
           <TEInput
             type="text"
             label="Email"
             className="mb-4"
-            value={userRegister.email}
             onChange={(e) => {
               setUserRegister({
-                ...userRegister.user,
-                email: e.target.value,
+                ...userRegister,
+                user: { ...userRegister.user, email: e.target.value },
               });
               console.log(userRegister);
             }}
@@ -106,11 +105,10 @@ export default function RegisterPage() {
             type={showPassword ? "text" : "password"}
             label="Contraseña"
             className="mb-4"
-            value={userRegister.password}
             onChange={(e) =>
               setUserRegister({
                 ...userRegister,
-                user: { password: e.target.value },
+                user: { ...userRegister.user, password: e.target.value },
               })
             }
           />

@@ -1,25 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TEInput, TERipple } from "tw-elements-react";
-import { sign_in } from "./services/authService";
+import useAuth from "../hooks/useAuth";
 
 export default function LoginPage() {
+  const { handlerLogin } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const [user, setUser] = useState({ user: { email: "", password: "" } });
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
-  
+
   const onSingIn = async () => {
-    sign_in(user).then((res) => {
-      console.log(res);
-      if (res.status === 200) {
-        navigate("/formu");
-      } else {
-        alert("Error al iniciar sesión");
-      }
-    });
+    handlerLogin(user);
   };
 
   return (

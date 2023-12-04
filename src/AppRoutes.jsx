@@ -2,14 +2,14 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import LoginPage from "./auth/pages/LoginPage";
 import RegisterPage from "./auth/pages/RegisterPage";
 import PageRoutes from "./routes/PageRoutes";
-import { useState } from "react";
+import useAuth from "./auth/hooks/useAuth";
 
 export default function AppRoutes() {
-  const [isLogged, setIsLogged] = useState(false);
+  const { login } = useAuth();
   return (
     <>
       <Routes>
-        {isLogged ? (
+        {login.isAuth ? (
           <>
             <Route path="/formu/*" element={<PageRoutes />} />
             <Route path="/*" element={<Navigate to="/formu/panel" />} />

@@ -22,7 +22,6 @@ export default function PageRoutes() {
       />
       <main className="md:pl-72 w-full min-h-[calc(100vh-64px)] mt-16  dark:bg-gray-800 transition-all p-8">
       <Routes>
-        <Route path="/panel" element={<h1>Panel</h1>} />
         <Route path="/formularios" element={<FormsPage />} />
         <Route path="formularios/nuevo-formulario" element={<Form />} />
         <Route path="/asignaciones" element={<AssignmentsPage />} />
@@ -32,7 +31,7 @@ export default function PageRoutes() {
 
         <Route path="/configuracion" element={<h1>Configuración</h1>} />
         
-        <Route path="/*" element={<Navigate to="/formu/panel" />} />        
+        <Route path="/*" element={<Navigate to="/formu/formularios" />} />        
       </Routes>
       </main>
     </>
