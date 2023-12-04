@@ -1,12 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { findAllForms } from "../services/formsService";
-import { loadForms } from "../store/slices/form/formSlice";
+import { loadForms, initalForm, change, } from "../store/slices/form/formSlice";
 import Swal from "sweetalert2";
-import { authLogout } from "../store/slices/auth/authSlice";
 import useAuth from "../auth/hooks/useAuth";
 
 const useForms = () => {
-    const { forms, selectedForm } = useSelector((state) => state.form);
+    const { forms, selectedForm, isCreate } = useSelector((state) => state.form);
     const dispach = useDispatch();
     const { handlerLogout } = useAuth();
 
@@ -28,6 +27,10 @@ const useForms = () => {
         }
     };
 
+    const changeNewUpdate = (value) => {
+        dispach(change(value));
+    };
+
     const addForm = (form) => {
         const newForm = {
             ...form,
@@ -37,7 +40,7 @@ const useForms = () => {
     };
 
 
-    return { forms, getForms, selectedForm };
+    return { forms, getForms, selectedForm, isCreate, initalForm, changeNewUpdate };
 }
 
 export default useForms;

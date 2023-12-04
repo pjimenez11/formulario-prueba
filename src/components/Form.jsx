@@ -1,14 +1,33 @@
 import { FiSave } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import HeaderForm from "./HeaderForm";
 import RequestData from "./RequestData";
 import DetailsChange from "./DetailsChange";
 import PriorityUrgency from "./PriorityUrgency";
 import Approval from "./Approval";
-
+import { useState } from "react";
+import useForms from "../hooks/useForms";
+import useAuth from "../auth/hooks/useAuth";
 
 export default function Form() {
   const navigate = useNavigate();
+  const { isCreate, selectedForm, initalForm, changeNewUpdate } = useForms();
+  const { id } = useParams();
+  if (id) {
+    changeNewUpdate(false);
+  } else {
+    changeNewUpdate(true);
+  }
+
+  const [form, setForm] = useState(isCreate ? initalForm : selectedForm);
+
+  const onInputChange = ({ target }) => {
+    const { name, value } = target;
+    setForm({ ...form, [name]: value });
+    console.log(form);
+  };
+
+
   return (
     <section className="flex flex-col gap-3">
       <div className="flex flex-row justify-end">
@@ -17,14 +36,17 @@ export default function Form() {
           onClick={() => navigate("/formu/formularios")}
         >
           <FiSave className="w-4 h-4 text-white" />
-          <span>Guardar</span>
+          <span>Guardar {isCreate === false && "cambios"}</span>
         </button>
       </div>
       <HeaderForm />
       <form className="flex flex-col gap-3">
-        <RequestData />
-        <DetailsChange />
-        <PriorityUrgency />
+        <RequestData
+          form={form}
+          onInputChange={onInputChange}
+        />
+        <DetailsChange form={form} onInputChange={onInputChange} />
+        <PriorityUrgency form={form} onInputChange={onInputChange} />
         <Approval />
       </form>
     </section>

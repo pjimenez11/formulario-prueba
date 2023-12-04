@@ -1,23 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const initalForm = {
+export const initalForm = {
     id: 0,
-    title: null,
-    description: null,
-    application_number: null,
-    date: null,
-    address: null,
-    justification: null,
-    status: null,
-    priority_level: null,
-    deadline: null,
-    requesting: null,
+    proyect_name: "",
+    description: "",
+    application_number: "",
+    date: "",
+    address: "",
+    justification: "",
+    status: "",
+    priority_level: "low",
+    deadline: "",
+    requesting: "",
     assigned_users: []
 }
 
 export const formSlice = createSlice({
     name: 'form',
     initialState: {
+        isCreate: false,
         selectedForm: initalForm,
         forms: [],
     },
@@ -25,7 +26,15 @@ export const formSlice = createSlice({
         loadForms: (state, action) => {
             state.forms = action.payload
         },
+        change: (state, action) => {
+            state.isCreate = action.payload
+        },
+        editForm: (state, action) => {
+            state.selectedForm = action.payload
+            state.isCreate = false
+        },
     },
+    
 })
 
-export const { loadForms } = formSlice.actions
+export const { loadForms, createForm, editForm, change } = formSlice.actions

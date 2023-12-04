@@ -25,7 +25,7 @@ export default function PageRoutes() {
         <Route path="/formularios" element={<FormsPage />} />
         <Route path="formularios/nuevo-formulario" element={<Form />} />
         <Route path="/asignaciones" element={<AssignmentsPage />} />
-        <Route path="/asignaciones/edit" element={<Form />} />
+        <Route path="/asignaciones/edit/:id" element={<Form />} />
         <Route path="/usuarios" element={<UsersPage />} />
         <Route path="/usuarios/nuevo-usuario" element={<FormUser />} />
 
