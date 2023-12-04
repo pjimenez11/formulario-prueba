@@ -80,7 +80,19 @@ export default function Sidebar({ toggleSidebarVisibility, toggleSidebar }) {
               className={`flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700 ${
                 item.current &&
                 "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-              } ${login.user.role == "tester" && item.name == "Usuarios" ? "hidden" : "flex"}` }
+              } ${
+                login.user.role == "tester" && item.name == "Usuarios"
+                  ? "hidden"
+                  : "flex"
+              } ${
+                login.user.role == "tester" && item.name == "Formularios"
+                  ? "hidden"
+                  : "flex"
+              } ${
+                login.user.role == "admin" && item.name == "Asignaciones"
+                  ? "hidden"
+                  : "flex"
+              }`}
               onClick={() => {
                 onCurrent(item.href), toggleSidebarVisibility();
               }}

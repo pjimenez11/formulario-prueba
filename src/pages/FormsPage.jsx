@@ -8,7 +8,7 @@ import useAuth from "../auth/hooks/useAuth";
 
 export default function FormsPage() {
   const { login } = useAuth();
-  const { getForms, newForm } = useForms();
+  const { getForms, newForm, forms } = useForms();
   const { getUsers } = useUsers();
   useEffect(() => {
     getForms();
@@ -21,7 +21,7 @@ export default function FormsPage() {
   };
   return (
     <section className="flex flex-col">
-      {login.user.role == "admin" && (
+      {login.user.role === "admin" && (
         <div className="flex flex-row justify-end">
           <button
             className="flex items-center justify-center px-2 py-1.5 space-x-2 text-sm font-medium text-white transition-colors duration-150 bg-green-600 border border-transparent rounded-lg active:bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"

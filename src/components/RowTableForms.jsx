@@ -12,6 +12,7 @@ export default function RowTableForms({ form }) {
       return "Cancelado";
     }
   };
+  
   return (
     <tr key={form.id}>
       <td className="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">

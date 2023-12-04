@@ -9,7 +9,7 @@ const initialUser = {
   last_name: "",
   email: "",
   password: "",
-  role: "developer",
+  role: "tester",
 };
 
 export default function FormUser() {
@@ -95,7 +95,6 @@ export default function FormUser() {
               name="role"
               onChange={onInputChange}
             >
-              <option value="developer">Developer</option>
               <option value="tester">Tester</option>
             </select>
           </div>
