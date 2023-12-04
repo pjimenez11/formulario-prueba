@@ -1,13 +1,40 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TEInput, TERipple } from "tw-elements-react";
+import { register } from "./services/authService";
+
+const initialuser = {
+  user: {
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+    role: "admin",
+    company_attributes: {
+      name: "",
+    },
+  },
+};
 
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const [userRegister, setUserRegister] = useState(initialuser);
 
-  const togglePasswordVisibility = () => {
+  const togglePasswordVisibility = (e) => {
     setShowPassword((prev) => !prev);
+  };
+
+  const onRegister = async (e) => {
+    console.log(userRegister);
+    register(userRegister).then((res) => {
+      console.log(res);
+      if (res.status === 200) {
+        navigate("/formu");
+      } else {
+        alert("Error al registrarse");
+      }
+    });
   };
 
   return (
@@ -23,26 +50,69 @@ export default function RegisterPage() {
           <p className="mb-4">Por favor, Registrese</p>
           <div className="relative flex flex-wrap gap-3">
             <div className="flex-1">
-              <TEInput type="text" label="Nombre" className="mb-4"></TEInput>
+              <TEInput
+                type="text"
+                label="Nombre"
+                className="mb-4"
+                value={userRegister.first_name}
+                onChange={(e) =>
+                  setUserRegister({
+                    ...userRegister.user,
+                    user: { first_name: e.target.value },
+                  })
+                }
+              ></TEInput>
             </div>
             <div className="flex-1">
-              <TEInput type="text" label="Apellido" className="mb-4"></TEInput>
+              <TEInput
+                type="text"
+                label="Apellido"
+                className="mb-4"
+                value={userRegister.last_name}
+                onChange={(e) =>
+                  setUserRegister({
+                    ...userRegister.user,
+                    user: { last_name: e.target.value },
+                  })
+                }
+              ></TEInput>
             </div>
           </div>
           <TEInput
             type="text"
             label="Empresa"
             className="mb-4"
+            onChange={(e) =>
+              setUserRegister({
+                ...userRegister.user,
+                user: { company_attributes: { name: e.target.value } },
+              })
+            }
           ></TEInput>
           <TEInput
             type="text"
-            label="Nombre de usuario"
+            label="Email"
             className="mb-4"
+            value={userRegister.email}
+            onChange={(e) => {
+              setUserRegister({
+                ...userRegister.user,
+                email: e.target.value,
+              });
+              console.log(userRegister);
+            }}
           ></TEInput>
           <TEInput
             type={showPassword ? "text" : "password"}
             label="Contraseña"
             className="mb-4"
+            value={userRegister.password}
+            onChange={(e) =>
+              setUserRegister({
+                ...userRegister,
+                user: { password: e.target.value },
+              })
+            }
           />
           <div className="flex items-center mb-4">
             <input
@@ -68,9 +138,7 @@ export default function RegisterPage() {
                   background:
                     "linear-gradient(to right, #246bee, #36add8, #36ddc1, #45b484)",
                 }}
-                onClick={() => {
-                  navigate("/formu");
-                }}
+                onClick={onRegister}
               >
                 Registrarse
               </button>
@@ -82,7 +150,7 @@ export default function RegisterPage() {
               <button
                 type="button"
                 className="inline-block rounded border-2 border-cyan-300 px-6 pb-[6px] pt-2 text-xs font-semibold uppercase leading-normal text-cyan-500 transition duration-150 ease-in-out hover:border-cyan-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-cyan-600 focus:border-cyan-600 focus:text-cyan-600 focus:outline-none focus:ring-0 active:border-cyan-700 active:text-cyan-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
-                onClick={() => {
+                onClick={(e) => {
                   navigate("/login");
                 }}
               >

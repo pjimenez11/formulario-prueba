@@ -5,7 +5,7 @@ import PageRoutes from "./routes/PageRoutes";
 import { useState } from "react";
 
 export default function AppRoutes() {
-  const [isLogged, setIsLogged] = useState(true);
+  const [isLogged, setIsLogged] = useState(false);
   return (
     <>
       <Routes>

@@ -1,15 +1,27 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TEInput, TERipple } from "tw-elements-react";
+import { sign_in } from "./services/authService";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-
+  const [user, setUser] = useState({ user: { email: "", password: "" } });
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
   
+  const onSingIn = async () => {
+    sign_in(user).then((res) => {
+      console.log(res);
+      if (res.status === 200) {
+        navigate("/formu");
+      } else {
+        alert("Error al iniciar sesión");
+      }
+    });
+  };
+
   return (
     <section className="min-h-screen w-full flex justify-center items-center p-4">
       <div className="rounded-lg bg-white shadow-lg dark:bg-neutral-800 sm:w-8/12 lg:w-5/12 w-full h-min px-4 text-neutral-800 dark:text-neutral-200">
@@ -25,11 +37,13 @@ export default function LoginPage() {
             type="text"
             label="Nombre de usuario"
             className="mb-4"
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
           ></TEInput>
           <TEInput
             type={showPassword ? "text" : "password"}
             label="Contraseña"
             className="mb-4"
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
           <div className="flex items-center mb-4">
             <input
@@ -56,7 +70,7 @@ export default function LoginPage() {
                     "linear-gradient(to right, #246bee, #36add8, #36ddc1, #45b484)",
                 }}
                 onClick={() => {
-                  navigate("/formu");
+                  onSingIn();
                 }}
               >
                 Iniciar
